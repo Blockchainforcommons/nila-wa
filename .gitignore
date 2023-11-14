@@ -1,2 +1,17 @@
-node_modules/*
+# dependencies
+package-lock.json
 node_modules
+
+/node_modules
+/package-lock.json
+
+# dotenv environment variables file
+.env
+
+# server files
+circuits
+dist
+src/issuer/circuits
+
+# build
+dist
