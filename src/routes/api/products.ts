@@ -5,8 +5,11 @@ const router = express.Router();
 import Product from '../../models/Product';
 import { productValidator } from '../../services/validator';
 import { socketInstance } from '../../services/socket';
+import multer from 'multer';
 
-const create = async (req: Request, res: Response, next: NextFunction) => {
+const multerUpload = multer();
+
+const create = async (req: any, res: Response, next: NextFunction) => {
   try {
     const {
       cropType,
@@ -30,7 +33,7 @@ const create = async (req: Request, res: Response, next: NextFunction) => {
       packagingStatus,
       harvestDate,
       entryDate,
-      picture,
+      picture: picture ?? req.file?.buffer,
       grade,
       pricePerQuintal,
       appId,
@@ -246,7 +249,7 @@ const deleteProduct = async (req: Request, res: Response, next: NextFunction) =>
   }
 };
 
-router.post('/', create);
+router.post('/', multerUpload.single('picture'), create);
 router.get('/', getProducts);
 router.put('/:id', updateProduct);
 router.put('/delete/:id', deleteProduct);

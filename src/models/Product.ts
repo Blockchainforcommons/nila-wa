@@ -9,7 +9,7 @@ const ProductSchema = new mongoose.Schema({
   packagingStatus: String,
   harvestDate: String,
   entryDate: String,
-  picture: String,
+  picture: Buffer,
   grade: String,
   pricePerQuintal: String,
   path: [String],

@@ -6,7 +6,7 @@ interface IProduct {
   packagingStatus: String;
   harvestDate: String;
   entryDate: String;
-  picture: String;
+  picture: Buffer;
   grade: String;
   pricePerQuintal: String;
 }
@@ -19,7 +19,7 @@ interface INewProduct {
   packagingStatus: String;
   harvestDate: String;
   entryDate: String;
-  picture: String;
+  picture: Buffer;
   grade: String;
   pricePerQuintal: String;
   path: String[];
